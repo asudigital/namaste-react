@@ -1,3 +1,45 @@
-#heading{
-    color: red;
+*{
+  box-sizing: border-box;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.Logo {
+  width: 100px;
+}
+.nav-items {
+  margin-right: 100px;
+}
+
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+  font-size: 24px;
+}
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 10px;
+}
+.res-container{
+  display: flex;
+  flex-wrap: wrap; 
+   /* justify-content: space-evenly; */
+}
+.res-card {
+  margin: 5px;
+  width: 200px;
+  /* height: 330px; */
+  padding: 5px;
+}
+.res-card:hover{
+  border: 1px solid black;
+  cursor: pointer;
+}
+.search{
+  padding: 10px;
+}
+.res-logo{
+  width: 100%;
 }
