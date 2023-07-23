@@ -18,3 +18,24 @@
 -HTTPS
 -Tree Shaking - remove unused code 
 -Different dev and production build
+
+
+# Namaste food
+/*
+ *Header
+ *-Logo
+ *-Nav items
+ *Body
+ *-search
+ *-Restaurantcard
+ *Footer
+ *-Links
+ *-Address
+ *-Contact
+ *-Information
+ */
+
+ # React Hooks
+ (Normal JS utility functions)
+ -useState()  - superpowerful state Variables in react
+ -useEffect()
