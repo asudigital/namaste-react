@@ -33,8 +33,15 @@ const {user, setUser} = useContext(UserContext);
 
     console.log(json); 
     //optional chaining
-    setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    // old API
+    // setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    // setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setListOfRestaurant(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
 
@@ -58,7 +65,7 @@ const {user, setUser} = useContext(UserContext);
             // Filter the restaurant cards and update the UI
             // search text
             console.log(searchText);
-           const filteredRestaurant= listOfRestaurants.filter((res)=>res.data.name.toLowerCase().includes(searchText.toLowerCase()));
+           const filteredRestaurant= listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
 
            setFilteredRestaurant(filteredRestaurant);
           }}>Search</button>
@@ -83,9 +90,10 @@ const {user, setUser} = useContext(UserContext);
               setListOfRestaurant()
                 //filter logic here
                 const filteredList =listOfRestaurants.filter( 
-                  (res) => res.data.avgRating > 4
+                  (res) => res.info.avgRating > 4
                   );
-                  setListOfRestaurant(filteredList);
+                  // setListOfRestaurant(filteredList);
+                  setFilteredRestaurant(filteredList);
             }}
             >
               Top Rated Restaurant
@@ -94,8 +102,12 @@ const {user, setUser} = useContext(UserContext);
         </div>
         <div className="flex flex-wrap">
          {
-          filteredRestaurant.map(restaurant => <Link key={restaurant.data.id} to={"/restaurants/" + restaurant.data.id}><RestaurantCard  resData ={restaurant} /></Link>)
+          filteredRestaurant.map(restaurant => <Link key={restaurant?.info.id} to={"/restaurants/" + restaurant.info.id}><RestaurantCard  resData ={restaurant} /></Link>)
          }
+
+{/* old API */}
+{/* key={restaurant?.data.id}
+            to={"/restaurants/" + restaurant?.data.id} */}
     
         </div>
       </div>
